@@ -1,22 +1,26 @@
-﻿namespace OopPrincipal;
+﻿
+using OopPrincipal;
 
-class Program
+var student = new Student("Kislov Kirill", 18);
+var student2 = new Student("Kislov Kirill", 2);
+var student3 = new Student("LOLOLO", 99)
 {
-    static void Main(string[] args)
-    {
-        var student = new Student("Kislov Kirill");
-        var student2 = new Student("Kislov Kirill", TypeOfStudy.University);
-        var student3 = new Student("LOLOLO")
-        {
-            age = 18,
-            endStudy = DateOnly.Parse("2025-05-31"),
-            startStudy = DateOnly.Parse("2024-09-01"),
-        };
+    /* уже нельзя инициализировать воззраст и конец обучения, так как доступы к свойствам - приватные
+    age = 18,
+    endStudy = DateOnly.Parse("2025-05-31"),
+    */
+    StartStudy = DateOnly.FromDateTime(DateTime.Now),
+};
 
-        student3.name = "KUKU";
-        student3.age = -18;
-        student3.endStudy = DateOnly.Parse("2125-05-31");
+/* уже нельзя инициализировать возрасть и конец обучения, так как доступы к свойствам - приватные
+student3.age = -18;
+student3.endStudy = DateOnly.Parse("2125-05-31");
+*/
 
-        Console.WriteLine("Hello, World!");
-    }
-}
+
+
+//student.SetName("Ksilophone Kirill");
+//student.ChangeSurname("Ksilophone");
+//Console.WriteLine(student.GetName());
+Console.WriteLine(student3.EndStudy);
+Console.WriteLine(student.Say("а у нас будет что-то типо обэда?"));
